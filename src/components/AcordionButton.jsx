@@ -22,7 +22,7 @@ const AcordionButton = (
           onClick={() => setActiveOption(!activeOption)} 
         >
           <div className="flex gap-2 items-center ">
-            {icon}  {name}    <span className="ml-auto"> <FontAwesomeIcon  icon={faAngleRight} style={{color: "#97A8B2",}} />  </span> 
+            {icon}  {name}    <span className="ml-auto "> <FontAwesomeIcon  icon={faAngleRight} style={{color: "#97A8B2",}} />  </span> 
           </div>
         </button>
         <div className="text-xs   mb-4 bg-zinc-700 w-full  "
@@ -30,11 +30,12 @@ const AcordionButton = (
           {activeOption &&
             array.map((option) => (
               <button
-                className=" flex flex-col px-1 tracking-normal leading-normal font-semibold text-gray-500 "
+                className=" w-full flex flex-col mt-2 tracking-normal leading-normal text-sm ml-[10%] font-semibold text-gray-500 "
                 key={option.id}
                 onClick={() => filterBy(option[typeStatus])}
               >
-                {option[typeStatus]}
+               {option[typeStatus]}  
+               
               </button>
             ))}
         </div>

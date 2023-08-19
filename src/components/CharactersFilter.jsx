@@ -126,16 +126,16 @@ const CharactersFilter = () => {
         data-aos="fade-right"
         data-aos-offset="300"
         data-aos-easing="ease-in-sine"
-        className="bg-slate-700 absolute top-0 bottom-0 w-2/3 z-10 ">
+        className="bg-slate-700 absolute top-0 bottom-0 w-2/3 z-10  ">
           <div className="flex items-center">
             <h3 style={{ color: "#97A8B2" }} className="my-3 pl-2 text-xs ">
               FILTRAR PERSONAJES
             </h3>
             <button
               onClick={() => setFilterOpen(!filterOpen)}
-              className="ml-auto pr-2"
+              className="ml-auto pr-2 text-base "
             >
-              <FontAwesomeIcon icon={faXmark} />
+            <FontAwesomeIcon icon={faXmark} style={{color: "#fff",fontSize:"30px"} }  />
             </button>
           </div>
           <AcordionButton
