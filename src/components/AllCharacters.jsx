@@ -31,10 +31,11 @@ const AllCharacters = () => {
       <CharactersFilter />
 
       <main>
-        <section className="container px-1 m-auto gap-2 custom:gap-1 grid grid-cols-2 custom:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 ">
+        <section  className="container px-1 m-auto gap-2 custom:gap-3 grid grid-cols-2 custom:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 ">
           {data.results?.map((character) => (
             <Link key={character.id} to={`/character/${character.id}`}>
-              <article className="m-w-[110px] max-w-[241px] border-[1px] border-gray-400">
+              <article
+              className="m-w-[110px] max-w-[241px] border-[1px] border-gray-400 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] ">
                 <div 
                 className="relative h-32   shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] "
                 style={{
@@ -50,7 +51,7 @@ const AllCharacters = () => {
                   </span>
                   <div style={{background:`${character.status=="Alive"?"#84CC16":"red"}`}} className="absolute ml-1 bottom-4 h-2 w-2  rounded-full "></div>
                 </div>
-                <h3 className="pl-1">{character.name}</h3>
+                <h3 className="pl-1 font-medium">{character.name}</h3>
                 <hr className="bg-slate-600" />
                 <div className="px-2 text-left ">
                 <span className="text-slate-400 ">raza</span>

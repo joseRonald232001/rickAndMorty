@@ -3,12 +3,20 @@ import statusJson from "../filterOptions/statusJson.json";
 import genderJson from "../filterOptions/genderJson.json";
 import speciesJson from "../filterOptions/speciesJson.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import useGetData from "../hooks/useGetData";
 import { useSelector } from "react-redux";
-
+import useGetData from "../hooks/useGetData";
 import AcordionButton from "./AcordionButton";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import {
+  faSkullCrossbones,
+  faUsers,
+  faVenusMars,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
 
 const CharactersFilter = () => {
+
   const { getCharacters } = useGetData();
   const data = useSelector((state) => state.obtainData);
   const [activeOptionStatus, setActiveOptionStatus] = useState(false);
@@ -17,10 +25,11 @@ const CharactersFilter = () => {
   const [valueInputSearch, setValueInputSearch] = useState("");
   const [filterType, setFilterType] = useState("");
   const [numberPag, setNumberPag] = useState(1);
+  const [filterOpen, setFilterOpen] = useState(false);
   const arrayStatus = statusJson;
   const arrayGender = genderJson;
   const arraySpecies = speciesJson;
-
+  AOS.init();
   const filterByStatus = (status) => {
     setNumberPag(1);
     setFilterType(status);
@@ -99,15 +108,78 @@ const CharactersFilter = () => {
         <span className="w-[5%] custom:w-[20%] h-[3px] bg-lime-500"></span>
       </section>
 
-      <div className="container  m-auto px-1 flex text-xs  my-4   ">
-      <button className="p-2 bg-slate-500 rounded-md ">
-        filtrar personajes por ... 
-      </button>
+      <section className="container  m-auto px-1 flex text-xs  my-4   ">
+        <button
+          onClick={() => setFilterOpen(!filterOpen)}
+          className="p-2 bg-slate-500 rounded-md "
+        >
+          filtrar personajes por ...
+        </button>
+
         <button className="ml-auto  hover:brightness-110 hover:animate-pulse font-semibold  p-2 rounded-md bg-teal-500 shadow-lg shadow-indigo-500/5 text-white">
           borrar filtros
         </button>
-      </div>
-   
+      </section>
+
+      {filterOpen && (
+        <div
+        data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"
+        className="bg-slate-700 absolute top-0 bottom-0 w-2/3 z-10 ">
+          <div className="flex items-center">
+            <h3 style={{ color: "#97A8B2" }} className="my-3 pl-2 text-xs ">
+              FILTRAR PERSONAJES
+            </h3>
+            <button
+              onClick={() => setFilterOpen(!filterOpen)}
+              className="ml-auto pr-2"
+            >
+              <FontAwesomeIcon icon={faXmark} />
+            </button>
+          </div>
+          <AcordionButton
+            icon={
+              <FontAwesomeIcon
+                icon={faSkullCrossbones}
+                style={{ color: "#97A8B2" }}
+              />
+            }
+            array={arrayStatus}
+            name="status"
+            setActiveOption={setActiveOptionStatus}
+            activeOption={activeOptionStatus}
+            filterBy={filterByStatus}
+            type="status"
+          />
+          <AcordionButton
+            icon={
+              <FontAwesomeIcon
+                icon={faVenusMars}
+                style={{ color: "#97A8B2" }}
+              />
+            }
+            array={arrayGender}
+            name="gender"
+            setActiveOption={setActiveOptionGender}
+            activeOption={activeOptionGender}
+            filterBy={filterByGender}
+            type="gender"
+          />
+
+          <AcordionButton
+            icon={
+              <FontAwesomeIcon icon={faUsers} style={{ color: "#97A8B2" }} />
+            }
+            array={arraySpecies}
+            name="species"
+            setActiveOption={setActiveOptionSpecie}
+            activeOption={activeOptionSpecie}
+            filterBy={filterBySpecie}
+            type="specie"
+          />
+        </div>
+      )}
     </>
   );
 };
