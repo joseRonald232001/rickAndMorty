@@ -111,13 +111,13 @@ const CharactersFilter = () => {
       <section className="container  m-auto px-1 flex text-xs  my-4   ">
         <button
           onClick={() => setFilterOpen(!filterOpen)}
-          className="p-2 bg-slate-500 rounded-md "
+          className="p-2 bg-slate-500 rounded-md text-sm font-medium "
         >
-          filtrar personajes por ...
+          Filtrar personajes por ...
         </button>
 
-        <button className="ml-auto  hover:brightness-110 hover:animate-pulse font-semibold  p-2 rounded-md bg-teal-500 shadow-lg shadow-indigo-500/5 text-white">
-          borrar filtros
+        <button className="ml-auto  hover:brightness-110 hover:animate-pulse font-semibold text-sm  p-2 rounded-md bg-teal-500 shadow-lg shadow-indigo-500/5 text-white">
+          Borrar filtros
         </button>
       </section>
 
@@ -127,6 +127,7 @@ const CharactersFilter = () => {
         data-aos-offset="300"
         data-aos-easing="ease-in-sine"
         className="bg-slate-700 absolute top-0 bottom-0 w-2/3 z-10  ">
+
           <div className="flex items-center">
             <h3 style={{ color: "#97A8B2" }} className="my-3 pl-2 text-xs ">
               FILTRAR PERSONAJES

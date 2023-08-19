@@ -17,6 +17,7 @@ const AllCharacters = () => {
   return (
     <>
       <header
+      data-aos="flip-left"
         style={{
           backgroundImage: `url(${imagesHeader[indexImageHeader]})`,
           backgroundPosition: "center",
@@ -26,7 +27,7 @@ const AllCharacters = () => {
         className="h-36 w-full shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]"
       ></header>
 
-      <h1 className="font-rubik text-center my-1  text-lg">Rick and morty</h1>
+      <h1 className="font-rubik text-center my-1  text-xl">Rick and morty</h1>
 
       <CharactersFilter />
 
