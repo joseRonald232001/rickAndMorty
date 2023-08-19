@@ -1,0 +1,5 @@
+[
+    { "id": 1, "status": "alive" },
+    { "id": 2, "status": "dead" },
+    { "id": 3, "status": "unknown" }
+]

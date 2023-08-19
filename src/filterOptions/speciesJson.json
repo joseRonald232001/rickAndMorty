@@ -1,0 +1,11 @@
+[
+  { "id": 1, "specie": "human" },
+  { "id": 2, "specie": "alien" },
+  { "id": 3, "specie": "humanoid" },
+  { "id": 7, "specie": "animal" },
+  { "id": 6, "specie": "unknown" },
+  { "id": 9, "specie": "robot" },
+  { "id": 10, "specie": "cronenberg" },
+  { "id": 8, "specie": "disease" },
+  { "id": 5, "specie": "mythological" }
+]
