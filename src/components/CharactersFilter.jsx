@@ -100,10 +100,10 @@ const CharactersFilter = () => {
       </section>
 
       <div className="container  m-auto px-1 flex text-xs  my-4   ">
-      <button className="py-1 px-2 bg-slate-500 rounded-md ">
+      <button className="p-2 bg-slate-500 rounded-md ">
         filtrar personajes por ... 
       </button>
-        <button className="ml-auto  hover:brightness-110 hover:animate-pulse font-semibold  py-1 px-2 rounded-md bg-teal-500 shadow-lg shadow-indigo-500/5 text-white">
+        <button className="ml-auto  hover:brightness-110 hover:animate-pulse font-semibold  p-2 rounded-md bg-teal-500 shadow-lg shadow-indigo-500/5 text-white">
           borrar filtros
         </button>
       </div>
