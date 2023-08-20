@@ -3,7 +3,7 @@ import statusJson from "../filterOptions/statusJson.json";
 import genderJson from "../filterOptions/genderJson.json";
 import speciesJson from "../filterOptions/speciesJson.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import useGetData from "../hooks/useGetData";
 import AcordionButton from "./AcordionButton";
 import AOS from "aos";
@@ -15,8 +15,9 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
-const CharactersFilter = () => {
 
+
+const CharactersFilter = () => {
   const { getCharacters } = useGetData();
   const data = useSelector((state) => state.obtainData);
   const [activeOptionStatus, setActiveOptionStatus] = useState(false);
@@ -24,7 +25,7 @@ const CharactersFilter = () => {
   const [activeOptionSpecie, setActiveOptionSpecie] = useState(false);
   const [valueInputSearch, setValueInputSearch] = useState("");
   const [filterType, setFilterType] = useState("");
-  const [numberPag, setNumberPag] = useState(1);
+  const [numberPag, setNumberPag] = useState(0);
   const [filterOpen, setFilterOpen] = useState(false);
   const arrayStatus = statusJson;
   const arrayGender = genderJson;
@@ -54,6 +55,7 @@ const CharactersFilter = () => {
       `https://rickandmortyapi.com/api/character/?species=${specie}`
     );
   };
+
   useEffect(() => {
     if (valueInputSearch !== "") {
       getCharacters(
@@ -82,8 +84,10 @@ const CharactersFilter = () => {
     }
   }, [valueInputSearch, numberPag]);
 
+
   function searchByName(e) {
     e.preventDefault();
+
   }
 
   return (
@@ -111,7 +115,7 @@ const CharactersFilter = () => {
       <section className="container  m-auto px-1 flex text-xs  my-4   ">
         <button
           onClick={() => setFilterOpen(!filterOpen)}
-          className="p-2 bg-slate-500 rounded-md text-sm font-medium "
+          className="p-2 bg-slate-500 rounded-md text-sm font-medium   "
         >
           Filtrar personajes por ...
         </button>
@@ -123,11 +127,11 @@ const CharactersFilter = () => {
 
       {filterOpen && (
         <div
-        data-aos="fade-right"
-        data-aos-offset="300"
-        data-aos-easing="ease-in-sine"
-        className="bg-slate-700 absolute top-0 bottom-0 w-2/3 z-10  ">
-
+          data-aos="fade-right"
+          data-aos-offset="300"
+          data-aos-easing="ease-in-sine"
+          className="bg-slate-700 absolute top-0 bottom-0 w-2/3 md:w-2/4 max-w-[300px] z-10  "
+        >
           <div className="flex items-center">
             <h3 style={{ color: "#97A8B2" }} className="my-3 pl-2 text-xs ">
               FILTRAR PERSONAJES
@@ -136,7 +140,10 @@ const CharactersFilter = () => {
               onClick={() => setFilterOpen(!filterOpen)}
               className="ml-auto pr-2 text-base "
             >
-            <FontAwesomeIcon icon={faXmark} style={{color: "#fff",fontSize:"30px"} }  />
+              <FontAwesomeIcon
+                icon={faXmark}
+                style={{ color: "#fff", fontSize: "30px" }}
+              />
             </button>
           </div>
           <AcordionButton
@@ -166,6 +173,7 @@ const CharactersFilter = () => {
             activeOption={activeOptionGender}
             filterBy={filterByGender}
             type="gender"
+           
           />
 
           <AcordionButton
@@ -181,6 +189,8 @@ const CharactersFilter = () => {
           />
         </div>
       )}
+
+
     </>
   );
 };

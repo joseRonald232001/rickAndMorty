@@ -30,7 +30,7 @@ const AcordionButton = (
           {activeOption &&
             array.map((option) => (
               <button
-                className=" w-full flex flex-col mt-2 tracking-normal leading-normal pl-[20%] text-sm  font-semibold text-gray-500 "
+                className=" w-full flex flex-col mt-2 tracking-normal leading-normal pl-[20%] text-sm  font-semibold text-gray-400 "
                 key={option.id}
                 onClick={() => filterBy(option[typeStatus])}
               >

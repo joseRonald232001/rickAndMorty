@@ -1,7 +1,9 @@
 import React from "react";
 import CharactersFilter from "./CharactersFilter";
-import { useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+
+
 
 const AllCharacters = () => {
   const imagesHeader = [
@@ -14,22 +16,28 @@ const AllCharacters = () => {
   ];
   const data = useSelector((state) => state.obtainData);
   const indexImageHeader = Math.floor(Math.random() * imagesHeader.length);
+
   return (
+
     <>
       <header
       data-aos="flip-left"
         style={{
           backgroundImage: `url(${imagesHeader[indexImageHeader]})`,
-          backgroundPosition: "center",
+          backgroundPosition: "center center",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat ",
         }}
-        className="h-36 w-full shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]"
-      ></header>
+        className="h-36 sm:h-60 lg:h-72  xl:h-80 w-full shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]"
+      >
 
-      <h1 className="font-rubik text-center my-1  text-xl">Rick and morty</h1>
+      </header>
+
+      <h1 className="font-rubik text-center my-1  text-xl md:text-3xl  xl:text-4xl">Rick and morty</h1>
 
       <CharactersFilter />
+
+
 
       <main>
         <section  className="container px-1 m-auto gap-2 custom:gap-3 grid grid-cols-2 custom:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 ">
