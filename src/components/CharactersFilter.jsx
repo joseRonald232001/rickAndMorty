@@ -9,11 +9,14 @@ import AcordionButton from "./AcordionButton";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import {
+  faCircleArrowLeft,
+  faCircleArrowRight,
   faSkullCrossbones,
   faUsers,
   faVenusMars,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
+import ReactPaginate from "react-paginate";
 
 
 
@@ -87,8 +90,21 @@ const CharactersFilter = () => {
 
   function searchByName(e) {
     e.preventDefault();
-
   }
+  
+ const handlePageClick =(data)=>{
+  const pageSelected=data.selected+1
+  setNumberPag(pageSelected)
+ }
+
+ const cleanFilters=()=>{
+  setActiveOptionGender(false)
+  setActiveOptionSpecie(false)
+  setActiveOptionStatus(false)
+  setValueInputSearch("")
+  setFilterOpen(false)
+ }
+
 
   return (
     <>
@@ -120,7 +136,9 @@ const CharactersFilter = () => {
           Filtrar personajes por ...
         </button>
 
-        <button className="ml-auto  hover:brightness-110 hover:animate-pulse font-semibold text-sm  p-2 rounded-md bg-teal-500 shadow-lg shadow-indigo-500/5 text-white">
+        <button 
+        onClick={cleanFilters}
+        className="ml-auto  hover:brightness-110 hover:animate-pulse font-semibold text-sm  p-2 rounded-md bg-teal-500 shadow-lg shadow-indigo-500/5 text-white">
           Borrar filtros
         </button>
       </section>
@@ -190,7 +208,16 @@ const CharactersFilter = () => {
         </div>
       )}
 
-
+     <ReactPaginate
+        breakLabel="..."
+        nextLabel={<FontAwesomeIcon icon={faCircleArrowRight} style={{color: "#97A8B2",}} />}
+        onPageChange={handlePageClick}
+        pageCount={data.info?.pages||1}
+        previousLabel={<FontAwesomeIcon icon={faCircleArrowLeft} style={{color: "#97A8B2",}} />}
+        renderOnZeroPageCount={null}
+        activeClassName="bg-white text-black rounded-full w-5 text-center"
+        className="flex w-fit m-auto gap-2  text-base my-2 bg-slate-600 p-2 px-3 rounded-md roun"
+      />
     </>
   );
 };

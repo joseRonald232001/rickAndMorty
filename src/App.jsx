@@ -11,7 +11,7 @@ function App() {
     <>
     <Routes>
       <Route  path='/' element={<AllCharacters/>}/>
-      <Route  path='characters/:id' element={<CharacetersById/>}  />
+      <Route  path='character/:id' element={<CharacetersById/>}  />
     </Routes>
     </>
   </HashRouter>
